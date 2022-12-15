@@ -1,7 +1,3 @@
-const fetch = require('node-fetch');
-
-const url = 'https://api-nba-v1.p.rapidapi.com/players?team=1&season=2021';
-
 const options = {
 	method: 'GET',
 	headers: {
@@ -10,16 +6,7 @@ const options = {
 	}
 };
 
-fetch("https://api-nba-v1.p.rapidapi.com/players?id=265", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "api-nba-v1.p.rapidapi.com",
-		"x-rapidapi-key": "XxXxXxXxXxXxXxXxXxXxXxXx"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.log(err);
-});
+fetch('https://api-nba-v1.p.rapidapi.com/teams?code={team-input}', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
