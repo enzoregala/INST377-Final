@@ -249,31 +249,7 @@
      */
     width: 150px; 
   }
-  
-  .prev,
-  .next {
-    border: none;
-    margin: 2px;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-    height: 45px;
-    padding: 10px;
-    line-height: 0; /* This centers a button's text! */
-    border: 2px solid rgb(99,99,99); /* shorthand for how to do a border */
-  }
-  
-  .prev:focus,
-  .next:focus {
-    margin: 0;
-    /* Pick a good border colour and check out how it works with your buttons */
-  }
-  
-  .prev:hover,
-  .next:hover {
-    /* Pick a good background colour for your hover pseudoclass */
-    background-color: rgba(5, 255, 68, 0.8);
-  }
+
   
   /*
   Form Styles
