@@ -74,10 +74,10 @@
   }
   
   .header {
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1.5rem;
+    background-color: rgba(170, 222, 222, 0.8);
+    flex: 0 1 auto;
+    margin: 1rem;
+    padding: 1.5rem;
   }
   
   
@@ -119,7 +119,7 @@
   
   .box {
     background-color: rgba(202, 255, 203, 0.468);
-    border: 2px dashed;
+    border: 1px;
     border-radius: 4px;
   
     width: auto;
@@ -136,7 +136,7 @@
   }
   
   .right_section {
-    background-color: rgba(27, 68, 90, 0.7);
+    background-color: rgba(133, 186, 186, 0.8);
     flex: 1 2 auto;
     margin: 1rem;
     align-items: center;
