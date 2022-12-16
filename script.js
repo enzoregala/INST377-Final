@@ -9,4 +9,4 @@ const options = {
 fetch('https://api-nba-v1.p.rapidapi.com/teams?code={team-input}', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	.catch(err => console.error(err));	

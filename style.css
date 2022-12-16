@@ -41,6 +41,12 @@
     text-decoration: none;
   }
   
+  h1 {
+    margin:0;
+    padding:0;
+    padding-bottom:1.5rem;
+  }
+
   h2, h3 {
     margin:0;
     padding:0;
@@ -89,7 +95,8 @@
     Those rules won't apply to an h1 that's outside a block with the class of 'header'
   */
   
-  .header h1 {
+
+  .header {
     display: block;
     /* this will push other blocks out of the way */
   
