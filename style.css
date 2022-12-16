@@ -100,7 +100,7 @@
     /* shapes */
     border: 4 px dashed;
     border-radius: 6px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding: 1.25rem;
     margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
   
