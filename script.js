@@ -49,7 +49,7 @@ function showResult(players, teamName) {
 
 	players.forEach(function (player) {
 		const ol = document.createElement("ol")
-		ol.append(`${player.firstname} ${player.lastname} Height: ${player.height.feets}' ${player.height.inches} Weight: ${player.weight.pounds}`)
+		ol.append(`${player.firstname} ${player.lastname} | Height: ${player.height.feets}' ${player.height.inches}" | Weight: ${player.weight.pounds} lbs`)
 		resultDiv.append(ol)
 	})
 }
