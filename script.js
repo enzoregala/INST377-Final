@@ -13,13 +13,24 @@ async function getPlayer() {
 		.then((data) => {
 			const players = data.response
 			console.log(players)
-			showResult(players,teamName)
+			showResult(players, teamName)
 		});
 
 
 
 	}
 
-	async function getTeamIDByName(teamName) {
+	function showResult(players, teamName) {
+		const resultDiv = document.getElementById("right-section")
 
+		const h4 = document.createElemetnbyId("right-section")
+		h4.append(teamName)
+
+		resultDiv.append(h4)
+
+		players.forEach(function (player) {
+			const ol = document.createElement("ol")
+			ol.append(`${player.firstname} ${player.lastname}`)
+		})
 	}
+
