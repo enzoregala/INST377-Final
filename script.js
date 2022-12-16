@@ -3,6 +3,7 @@ const buttonElement = document.getElementById("search-button")
 buttonElement.addEventListener('click', getPlayer)
 
 async function getPlayer() {
+	const teamName = document.getElementById("team-input")
 	const url = `https://api-nba-v1.p.rapidapi.com/players?team=20&season=2021`;
 
 	fetch(url, options)
@@ -20,5 +21,5 @@ async function getPlayer() {
 	}
 
 	async function getTeamIDByName(teamName) {
-		
+
 	}
