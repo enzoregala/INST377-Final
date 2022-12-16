@@ -8,10 +8,11 @@ const options = {
 };
 
 const buttonElement = document.getElementById("search-button")
+const loadAnimation = document.querySelector('.lds-ellipsis');
 
-buttonElement.addEventListener('click', getPlayer)
+buttonElement.addEventListener('click', getTeam)
 
-async function getPlayer() {
+async function getTeam() {
 	const teamName = document.getElementById("team-input").value
 	const team = await getTeamIDByName(teamName)
 	const url = `https://api-nba-v1.p.rapidapi.com/players?team=${team.id}&season=2021`;
@@ -30,25 +31,25 @@ async function getPlayer() {
 
 	}
 
-	async function getTeamIDByName(teamName) {
-		const url = `https://api-nba-v1.p.rapidapi.com/teams?search=${teamName}`;
-		const response = await fetch(url, options)
-		const responseJSON = await response.json()
-		return responseJSON.response[0]
-	}
+async function getTeamIDByName(teamName) {
+	const url = `https://api-nba-v1.p.rapidapi.com/teams?search=${teamName}`;
+	const response = await fetch(url, options)
+	const responseJSON = await response.json()
+	return responseJSON.response[0]
+}
 
-	function showResult(players, teamName) {
-		const resultDiv = document.getElementById("right-section")
+function showResult(players, teamName) {
+	const resultDiv = document.getElementById("right-section")
 
-		const h4 = document.createElement("h4")
-		h4.append(teamName)
+	const h4 = document.createElement("h4")
+	h4.append(teamName)
+	h4.append()
 
-		resultDiv.append(h4)
+	resultDiv.append(h4)
 
-		players.forEach(function (player) {
-			const ol = document.createElement("ol")
-			ol.append(`${player.firstname} ${player.lastname}`)
-			resultDiv.append(ol)
-		})
-	}
-
+	players.forEach(function (player) {
+		const ol = document.createElement("ol")
+		ol.append(`${player.firstname} ${player.lastname} Height: ${player.height.feets}' ${player.height.inches} Weight: ${player.weight.pounds}`)
+		resultDiv.append(ol)
+	})
+}
