@@ -1,12 +1,22 @@
+const API_URL = "https://api-nba-v1.p.rapidapi.com/"
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '1c85e38955msh8591f4a365a1b6bp17a39djsnc441b0b2d387',
+		'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+	}
+};
+
 const buttonElement = document.getElementById("search-button")
 
 buttonElement.addEventListener('click', getPlayer)
 
 async function getPlayer() {
-	const teamName = document.getElementById("team-input")
-	const url = `https://api-nba-v1.p.rapidapi.com/players?team=20&season=2021`;
+	const teamName = document.getElementById("team-input").value
+	const team = await getTeamIDByName(teamName)
+	const url = `https://api-nba-v1.p.rapidapi.com/players?team=${team.id}&season=2021`;
 
-	fetch(url, options)
+	fetch(url, options)	
 		.then((response) => {
 			return response.json()
 		})
@@ -20,10 +30,17 @@ async function getPlayer() {
 
 	}
 
+	async function getTeamIDByName(teamName) {
+		const url = `https://api-nba-v1.p.rapidapi.com/teams?search=${teamName}`;
+		const response = await fetch(url, options)
+		const responseJSON = await response.json()
+		return responseJSON.response[0]
+	}
+
 	function showResult(players, teamName) {
 		const resultDiv = document.getElementById("right-section")
 
-		const h4 = document.createElemetnbyId("right-section")
+		const h4 = document.createElement("h4")
 		h4.append(teamName)
 
 		resultDiv.append(h4)
@@ -31,6 +48,7 @@ async function getPlayer() {
 		players.forEach(function (player) {
 			const ol = document.createElement("ol")
 			ol.append(`${player.firstname} ${player.lastname}`)
+			resultDiv.append(ol)
 		})
 	}
 
