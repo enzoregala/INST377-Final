@@ -1,12 +1,24 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1c85e38955msh8591f4a365a1b6bp17a39djsnc441b0b2d387',
-		'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-	}
-};
+const buttonElement = document.getElementById("search-button")
 
-fetch('https://api-nba-v1.p.rapidapi.com/teams?code={team-input}', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));	
+buttonElement.addEventListener('click', getPlayer)
+
+async function getPlayer() {
+	const url = `https://api-nba-v1.p.rapidapi.com/players?team=20&season=2021`;
+
+	fetch(url, options)
+		.then((response) => {
+			return response.json()
+		})
+		.then((data) => {
+			const players = data.response
+			console.log(players)
+			showResult(players,teamName)
+		});
+
+
+
+	}
+
+	async function getTeamIDByName(teamName) {
+		
+	}
